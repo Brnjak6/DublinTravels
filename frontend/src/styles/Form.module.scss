@@ -1,0 +1,45 @@
+.container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h2 {
+    text-transform: uppercase;
+  }
+
+  & label {
+    margin: 0.2rem 0;
+  }
+}
+
+.btn {
+  width: fit-content;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  border-radius: 0px;
+  border: none;
+  background: var(--themeMedium);
+  margin: 1rem 0 4rem 0;
+}
+
+input[type='date'] {
+  padding: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Poppins';
+}
+
+select {
+  padding: 2px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.selection {
+  text-align: center;
+}

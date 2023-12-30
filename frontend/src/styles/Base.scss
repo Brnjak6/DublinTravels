@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@500&family=Poppins:wght@300;400&family=Ubuntu&display=swap');
+
+:root {
+  --primary: #333333;
+  --secondary: #fdfdfd;
+  --themeLight: rgba(16, 148, 51, 0.466);
+  --themeMedium: rgba(16, 148, 51, 0.766)
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins';
+  overflow-x: hidden;
+  color: var(--primary);
+  background-color: var(--secondary);
+  box-sizing: border-box;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: var(--primary);
+  }
+}
+
+.navigation {
+  height: 3.5rem;
+  width: 100%;
+  z-index: 500;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: 1s all;
+  background: var(--themeMedium);
+  
+  & h2 {
+    color: var(--secondary);
+    margin: 0;
+  }
+
+  
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  
+  h2 {
+    margin-left: 5px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  p {
+    padding-top: .1rem;
+    color: var(--secondary);
+  }
+
+  @media only screen and (max-width: 700px) {
+    h2{
+      display: none;
+    }
+  }
+}
+
+nav {
+  width: 18rem;
+}
+
+.sun {
+  display: flex;
+  align-items: center;
+  margin-top: .1rem;
+  margin-left: .6rem;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  a {
+    color: var(--secondary);
+    text-transform: uppercase;
+  }
+}
+
+.username {
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
+.routes {
+  padding-top: 3.5rem;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--primary); 
+  color: #ffffff; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary); 
+  color: var(--primary); 
+}

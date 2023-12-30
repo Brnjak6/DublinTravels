@@ -1,0 +1,27 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5rem;
+    text-transform: uppercase;
+    & form {
+        display: flex;
+        flex-direction: column;
+        
+        & label {
+            padding-top: 1rem;
+        }
+
+        & button {
+            margin-top: 1rem;
+            background: var(--themeMedium);
+        }
+
+        & p {
+            color: red;
+            font-weight: bold;
+        }
+    }
+}
