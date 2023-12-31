@@ -8,6 +8,20 @@ const userRoutes = require('./routes/itineraries');
 // storing expressJS into a variable
 const app = express();
 
+app.use((req, res, next) => {
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://dt-frontend.onrender.com'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+  );
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 //middleware
 //parsing raw data to JSON instantly
 app.use(express.json());
