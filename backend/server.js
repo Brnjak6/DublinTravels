@@ -8,7 +8,7 @@ const cors = require('cors');
 // storing expressJS into a variable
 const app = express();
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://dt-frontend.onrender.com' }));
 
 //middleware
 //parsing raw data to JSON instantly
