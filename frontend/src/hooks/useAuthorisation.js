@@ -5,15 +5,18 @@ export const useSignup = () => {
   const [isError, setIsError] = useState(null);
   const { dispatch } = useContext(AuthContext);
 
-// This is the logic for accessing backend routes for login and signup page
+  // This is the logic for accessing backend routes for login and signup page
 
-//Once the user tries to signup on the signup page, they insert the email and password and then we make user logged in as well and put the data in local storage
+  //Once the user tries to signup on the signup page, they insert the email and password and then we make user logged in as well and put the data in local storage
   const signup = async (email, password, username) => {
-    const response = await fetch('/api/user/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password, username }),
-    });
+    const response = await fetch(
+      process.env.REACT_APP_BACKEND + '/api/user/signup',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password, username }),
+      }
+    );
 
     const data = await response.json();
 

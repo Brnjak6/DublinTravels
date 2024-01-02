@@ -46,7 +46,7 @@ let query = itinerary.location
     }
 
     //Navigating to the database and finding the right itinerary so we can delete it in the next step below
-    const response = await fetch('/api/itineraries/' + itinerary._id, {
+    const response = await fetch( process.env.REACT_APP_BACKEND + '/api/itineraries/' + itinerary._id, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${user.token}`,

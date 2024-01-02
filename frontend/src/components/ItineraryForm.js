@@ -58,14 +58,17 @@ function ItineraryForm() {
     };
 
     //We take all user input information into above constant and below we use post method to send it to database
-    const response = await fetch('/api/itineraries', {
-      method: 'POST',
-      body: JSON.stringify(itinerary),
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
+    const response = await fetch(
+      process.env.REACT_APP_BACKEND + '/api/itineraries',
+      {
+        method: 'POST',
+        body: JSON.stringify(itinerary),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
 
     const data = await response.json();
 
