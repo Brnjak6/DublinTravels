@@ -4,7 +4,7 @@
   --primary: #333333;
   --secondary: #fdfdfd;
   --themeLight: rgba(16, 148, 51, 0.466);
-  --themeMedium: rgba(16, 148, 51, 0.766)
+  --themeMedium: rgba(16, 148, 51, 0.766);
 }
 
 html,
@@ -34,19 +34,17 @@ body {
   justify-content: space-around;
   transition: 1s all;
   background: var(--themeMedium);
-  
+
   & h2 {
     color: var(--secondary);
     margin: 0;
   }
-
-  
 }
 
 .logo {
   display: flex;
   align-items: center;
-  
+
   h2 {
     margin-left: 5px;
   }
@@ -58,12 +56,12 @@ body {
   }
 
   p {
-    padding-top: .1rem;
+    padding-top: 0.1rem;
     color: var(--secondary);
   }
 
   @media only screen and (max-width: 700px) {
-    h2{
+    h2 {
       display: none;
     }
   }
@@ -76,8 +74,8 @@ nav {
 .sun {
   display: flex;
   align-items: center;
-  margin-top: .1rem;
-  margin-left: .6rem;
+  margin-top: 0.1rem;
+  margin-left: 0.6rem;
 }
 
 .account {
@@ -94,6 +92,13 @@ nav {
 .username {
   color: var(--secondary);
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  .usernameSVG {
+    margin-right: 0.3rem;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .routes {
@@ -110,12 +115,12 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 2px;
-  background-color: var(--primary); 
-  color: #ffffff; 
+  background-color: var(--primary);
+  color: #ffffff;
   transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover {
-  background-color: var(--secondary); 
-  color: var(--primary); 
+  background-color: var(--secondary);
+  color: var(--primary);
 }

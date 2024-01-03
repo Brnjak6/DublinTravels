@@ -1,9 +1,11 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export const useSignup = () => {
   const [isError, setIsError] = useState(null);
   const { dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // This is the logic for accessing backend routes for login and signup page
 
@@ -26,6 +28,7 @@ export const useSignup = () => {
       //here we technically need our signed up user to log in and to have users data accessable in local storage
       localStorage.setItem('user', JSON.stringify(data));
       dispatch({ type: 'LOGIN', payload: data });
+      navigate('/');
     }
   };
 
@@ -49,15 +52,19 @@ export const useLogin = () => {
   const [isError, setIsError] = useState(null);
   const { dispatch } = useContext(AuthContext);
   const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
+  const navigate = useNavigate();
 
   const login = async (email, password) => {
     setIsError(null);
 
-    const response = await fetch('/api/user/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      process.env.REACT_APP_BACKEND + '/api/user/login',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      }
+    );
     const data = await response.json();
 
     if (!response.ok) {
@@ -67,6 +74,7 @@ export const useLogin = () => {
       localStorage.setItem('user', JSON.stringify(data));
       dispatch({ type: 'LOGIN', payload: data });
       setIsLoginSuccessful(true);
+      navigate('/');
     }
   };
 

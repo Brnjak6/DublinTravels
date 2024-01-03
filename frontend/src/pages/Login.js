@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react';
 import styles from '../styles/Authorize.module.scss';
 import { useLogin } from '../hooks/useAuthorisation';
 import { AuthContext } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -10,7 +9,6 @@ function Login() {
   const { login, isLoginSuccessful } = useLogin();
   const { user } = useContext(AuthContext);
   const [username, setUsername] = useState('');
-  const navigate = useNavigate();
 const [error, setError] = useState(false)
   
 
@@ -26,7 +24,6 @@ const [error, setError] = useState(false)
     await login(email, password, username);
   
     if (isLoginSuccessful) {
-      navigate('/');
       setError(false)
     } else{
       setError(true)

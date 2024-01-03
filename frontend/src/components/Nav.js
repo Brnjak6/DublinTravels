@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
 import { ReactComponent as LogoSVG } from '../img/logo.svg';
 import { ReactComponent as SunSVG } from '../img/sun.svg';
+import { ReactComponent as UserSVG } from '../img/user.svg';
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
@@ -38,7 +39,6 @@ const Nav = () => {
   const handleLogout = () => {
     logout();
     navigate('/');
-
   };
 
   return (
@@ -51,7 +51,7 @@ const Nav = () => {
           <Link to="/">
             <h2>Dublin Travels</h2>
           </Link>
-          <div className='sun'>
+          <div className="sun">
             <SunSVG />
             {temperature !== null ? <p>{temperature} °C</p> : <p>Loading...</p>}
           </div>
@@ -62,6 +62,9 @@ const Nav = () => {
             {user && (
               <div className="account">
                 <Link to="/account" className="username">
+                  <div className="usernameSVG">
+                    <UserSVG />
+                  </div>
                   {user.username}
                 </Link>
                 <button onClick={handleLogout}>Log out</button>
