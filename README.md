@@ -6,5 +6,7 @@ This will be an interesting and quick source of information, and hopefully an in
 
 
 	Frontend: HTML, CSS, JavaScript, ReactJS
+
 	Backend: NodeJS, ExpressJS, Mongoose
+
 	Database: MongoDB
