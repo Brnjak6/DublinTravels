@@ -50,7 +50,7 @@ function Signup() {
           type="email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
-          maxLength={22}
+          maxLength={26}
         />
         <label>Password:</label>
         <input
