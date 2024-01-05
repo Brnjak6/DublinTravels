@@ -68,7 +68,7 @@ body {
 }
 
 nav {
-  width: 18rem;
+  width: 16rem;
 }
 
 .sun {
@@ -76,6 +76,7 @@ nav {
   align-items: center;
   margin-top: 0.1rem;
   margin-left: 0.6rem;
+  width: fit-content;
 }
 
 .account {
