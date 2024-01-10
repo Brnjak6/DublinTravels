@@ -104,10 +104,13 @@ function Main() {
               profile.
             </p>
             <p>
-              The idea is to share departure/event date and price. The location,
-              and the flight carrier should be included in the form. <br />
-              These information should be clear enough for any user to avail of
-              the great itinerary you have on your mind to share
+              The idea is to share when your event is happening and when should
+              you take a flight to get to the event. The location, and the
+              flight carrier should be included in the form. <br />
+              With this information, users should have ideally an afforadble
+              departing flight information and the cost of ticket included in
+              the total price. It is on them to decide their return flight
+              options.
             </p>
           </div>
         </div>
