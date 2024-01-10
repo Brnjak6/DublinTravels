@@ -5,12 +5,16 @@ import ItineraryDetails from '../components/ItineraryDetails';
 import landingPic from '../img/front.jpg';
 import { motion } from 'framer-motion';
 import { pageAnimation } from '../components/Animation';
+import { Chart } from 'react-google-charts';
+import Footer from '../components/Footer';
 
 function Main() {
   const { itineraries, dispatch } = useContext(ItinerariesContext);
   const [avgCost, setAvgCost] = useState(0);
   const [isModalOn, setIsModalOn] = useState(false);
-  const [wasModalOn, setWasModalOn] = useState(false);
+  const [dataChart, setDataChart] = useState([['Carrier', 'Repetitions']]);
+
+  let totalFlights = 0;
 
   useEffect(() => {
     // We fetch all itineraries from the database
@@ -27,13 +31,38 @@ function Main() {
           //Implementing logic for getting the average cost of all itineraries
           let accumulatedCost = 0;
           let costCount = 0;
+          const flightCarriers = [];
 
           data.forEach((itinerary) => {
             accumulatedCost += itinerary.price;
             costCount++;
+            totalFlights++;
+            const carrier = itinerary.carrier;
+
+            const existingCarrier = flightCarriers.findIndex(
+              (flight) => flight.carrier === carrier
+            );
+
+            if (existingCarrier !== -1) {
+              flightCarriers[existingCarrier].count++;
+            } else {
+              flightCarriers.push({ carrier, count: 1 });
+            }
           });
 
+          flightCarriers.forEach((carrier) => {
+            dataChart.push([carrier.carrier, carrier.count]);
+          });
+
+          const newChartData = flightCarriers.map(({ carrier, count }) => [
+            carrier,
+            count,
+          ]);
+          newChartData.unshift(['Carrier', 'Repetitions']);
+          setDataChart(newChartData);
           setAvgCost(accumulatedCost / costCount);
+
+          console.log(flightCarriers);
         }
       } catch (error) {
         console.error('Error:', error.message);
@@ -43,19 +72,15 @@ function Main() {
     fetchItineraries();
   }, [dispatch]);
 
-  useEffect(() => {
-    const wasModalOn = localStorage.getItem('wasModalOn');
-
-    if (!wasModalOn) {
-      setTimeout(() => {
-        setIsModalOn(true);
-        localStorage.setItem('wasModalOn', 'true');
-      }, 4000);
-    }
-  }, [wasModalOn]);
-
   const closeModal = () => {
     setIsModalOn(false);
+  };
+
+  const options = {
+    title: 'Flight Carriers',
+    pieHole: 0.4,
+    is3D: false,
+    colors: ['#121ea1', '#32a852', '#242323', '#a1911d'],
   };
 
   if (!itineraries) {
@@ -92,6 +117,22 @@ function Main() {
             <ItineraryDetails key={itinerary._id} itinerary={itinerary} />
           ))}
       </div>
+      <div className={styles.chart_text}>
+        <h4>Distribution of flights by carrier</h4>
+      </div>
+      <div>
+        {dataChart.length > 1 && (
+          <Chart
+            className={styles.chart}
+            chartType="PieChart"
+            data={dataChart}
+            options={options}
+            width="90%"
+            height="300px"
+          />
+        )}
+      </div>
+      <Footer />
       {isModalOn && (
         <div className={styles.modal}>
           <div className={styles.modal_window}>

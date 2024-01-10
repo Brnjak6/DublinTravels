@@ -125,3 +125,19 @@ img {
   }
 
 }
+
+.chart {
+  overflow: hidden;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &_text {
+    width: 100vw;
+    margin: 3rem;
+    border-top: 1px solid var(--themeLight);
+    border-bottom: 1px solid var(--themeLight);
+    text-transform: uppercase;
+  }
+}
