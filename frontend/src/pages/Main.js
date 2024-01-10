@@ -77,7 +77,6 @@ function Main() {
   };
 
   const options = {
-    title: 'Flight Carriers',
     pieHole: 0.4,
     is3D: false,
     colors: ['#121ea1', '#32a852', '#242323', '#a1911d'],
