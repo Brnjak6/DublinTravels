@@ -142,3 +142,15 @@ img {
     text-transform: uppercase;
   }
 }
+
+.cta {
+  background: var(--themeMedium);
+  color: var(--secondary);
+  text-transform: uppercase;
+  padding: 4rem 0;
+
+  & button {
+    margin: 2rem 0;
+    text-transform: uppercase;
+  }
+}

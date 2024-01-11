@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { pageAnimation } from '../components/Animation';
 import { Chart } from 'react-google-charts';
 import Footer from '../components/Footer';
+import Calltoaction from '../components/Calltoaction';
 
 function Main() {
   const { itineraries, dispatch } = useContext(ItinerariesContext);
@@ -75,7 +76,7 @@ function Main() {
   };
 
   const options = {
-    pieHole: 0.4,
+    pieHole: 0.3,
     is3D: false,
     colors: [
       '#121ea1',
@@ -140,6 +141,7 @@ function Main() {
           />
         )}
       </div>
+      <Calltoaction />
       <Footer />
       {isModalOn && (
         <div className={styles.modal}>
