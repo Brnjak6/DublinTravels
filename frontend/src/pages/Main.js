@@ -61,8 +61,6 @@ function Main() {
           newChartData.unshift(['Carrier', 'Repetitions']);
           setDataChart(newChartData);
           setAvgCost(accumulatedCost / costCount);
-
-          console.log(flightCarriers);
         }
       } catch (error) {
         console.error('Error:', error.message);
