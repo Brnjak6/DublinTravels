@@ -77,7 +77,18 @@ function Main() {
   const options = {
     pieHole: 0.4,
     is3D: false,
-    colors: ['#121ea1', '#32a852', '#242323', '#a1911d'],
+    colors: [
+      '#121ea1',
+      '#32a852',
+      '#a1911d',
+      '#242323',
+      '#78302b',
+      '#1c8c89',
+      '#bd33ad',
+      '#914116',
+      '#e0dfde',
+      '#080c57',
+    ],
   };
 
   if (!itineraries) {
